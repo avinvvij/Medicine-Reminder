@@ -56,10 +56,15 @@ class _NewMedicineState extends State<NewMedicine> {
                 placeholder: "Medicine Name*",
                 onChanged: (text) {},
               ),
-              SizedBox(height: 20,),
-              PRTextField(
-                placeholder: "Medicine Name*",
-                onChanged: (text) {},
+              SizedBox(
+                height: 20,
+              ),
+              RoutePicker(title: "Dosage", value: "1 Pill", displayArrow: true),
+              SizedBox(
+                height: 8,
+              ),
+              Divider(
+                color: AppPallete.dividerColor,
               ),
             ],
           ),
@@ -69,6 +74,58 @@ class _NewMedicineState extends State<NewMedicine> {
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       ),
+    );
+  }
+}
+
+class RoutePicker extends StatelessWidget {
+  RoutePicker(
+      {@required this.title,
+      @required this.value,
+      this.route,
+      this.displayArrow});
+  final String title;
+  final String value;
+  final String route;
+  final bool displayArrow;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 8,
+          child: Column(
+            children: [
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    this.title,
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w300,
+                        color: AppPallete.secondaryTextColor),
+                  )),
+              SizedBox(
+                height: 4,
+              ),
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    this.value,
+                    style: TextStyle(fontSize: 18),
+                  )),
+            ],
+          ),
+        ),
+        Expanded(
+            flex: 1,
+            child: Icon(
+              MaterialIcons.chevron_right,
+              color: AppPallete.dividerColor,
+              size: displayArrow ? 25 : 0,
+            ))
+      ],
     );
   }
 }

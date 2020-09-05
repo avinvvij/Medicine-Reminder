@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:pill_reminder/Config/RouteIDs.dart';
 import 'package:pill_reminder/Utils/Colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -40,7 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Center(
                     child: GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, "/intake");
+                          Navigator.pushNamed(
+                              context, RouteIDs.NEW_MED_INTAKE_ID);
                         },
                         child: Icon(Ionicons.md_add, size: 22)))),
           ],
