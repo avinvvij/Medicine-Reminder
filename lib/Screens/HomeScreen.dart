@@ -55,7 +55,9 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Center(child: NoData()),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, RouteIDs.MED_SCHEDULE_ID);
+        },
         backgroundColor: AppPallete.textColor,
         child: Center(
           child: Icon(

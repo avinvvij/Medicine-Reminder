@@ -1,8 +1,10 @@
 import "package:flutter/material.dart";
 import 'package:pill_reminder/Config/RouteIDs.dart';
 import 'package:pill_reminder/Screens/HomeScreen.dart';
+import 'package:pill_reminder/Screens/MedSchedule.dart';
 import 'package:pill_reminder/Screens/NewDosage.dart';
 import 'package:pill_reminder/Screens/NewMedicine.dart';
+import 'package:pill_reminder/Screens/NewSchedule.dart';
 import 'package:pill_reminder/Utils/Colors.dart';
 
 void main() {
@@ -21,7 +23,9 @@ class MainApp extends StatelessWidget {
       routes: {
         RouteIDs.HOME_SCREEN_ID: (context) => HomeScreen(),
         RouteIDs.NEW_MED_INTAKE_ID: (context) => NewMedicine(),
-        RouteIDs.NEW_DOSAGE_ID: (context) => NewDosage()
+        RouteIDs.NEW_DOSAGE_ID: (context) => NewDosage(),
+        RouteIDs.MED_SCHEDULE_ID: (context) => MedSchedule(),
+        RouteIDs.NEW_SCHEDULE_ID: (context) => NewSchedule()
       },
     );
   }

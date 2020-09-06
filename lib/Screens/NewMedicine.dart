@@ -4,6 +4,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:pill_reminder/CommonModules/PRDatePicker.dart';
 import 'package:pill_reminder/CommonModules/PRTextField.dart';
 import 'package:pill_reminder/Config/RouteIDs.dart';
+import 'package:pill_reminder/Models/Course.dart';
 import 'package:pill_reminder/Utils/Colors.dart';
 
 class NewMedicine extends StatefulWidget {
@@ -12,6 +13,14 @@ class NewMedicine extends StatefulWidget {
 }
 
 class _NewMedicineState extends State<NewMedicine> {
+  Course course = Course();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +65,11 @@ class _NewMedicineState extends State<NewMedicine> {
             children: [
               PRTextField(
                 placeholder: "Medicine Name*",
-                onChanged: (text) {},
+                onChanged: (text) {
+                  this.setState(() {
+                    course.name = text;
+                  });
+                },
               ),
               SizedBox(
                 height: 20,
@@ -81,8 +94,7 @@ class _NewMedicineState extends State<NewMedicine> {
                   title: "Begin Taking",
                   value: "6 september",
                   onTap: () async {
-                    print(await PRDatePicker(context: context)
-                        .displayDatePicker());
+                    await PRDatePicker(context: context).displayDatePicker();
                   },
                   displayArrow: false),
               SizedBox(
@@ -96,6 +108,9 @@ class _NewMedicineState extends State<NewMedicine> {
               ),
               RoutePicker(
                   title: "Schedule",
+                  onTap: () {
+                    Navigator.pushNamed(context, RouteIDs.NEW_SCHEDULE_ID);
+                  },
                   value: "Everyday, 1 intake",
                   displayArrow: true),
               SizedBox(
@@ -130,7 +145,11 @@ class _NewMedicineState extends State<NewMedicine> {
               ),
               PRTextField(
                 placeholder: "Your comment",
-                onChanged: (String text) {},
+                onChanged: (String text) {
+                  this.setState(() {
+                    course.comment = text;
+                  });
+                },
               )
             ],
           ),
