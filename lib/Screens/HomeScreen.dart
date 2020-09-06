@@ -88,16 +88,21 @@ class NoData extends StatelessWidget {
           top: -35,
           child: Align(
             alignment: Alignment.topCenter,
-            child: Card(
-              elevation: 10,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(80)),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  MaterialIcons.add,
-                  size: 50,
-                  color: AppPallete.primaryColor,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, RouteIDs.NEW_MED_INTAKE_ID);
+              },
+              child: Card(
+                elevation: 10,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(80)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
+                    MaterialIcons.add,
+                    size: 50,
+                    color: AppPallete.primaryColor,
+                  ),
                 ),
               ),
             ),
